@@ -4,6 +4,7 @@ from .models import Organization
 from .models import Student
 from .models import Orgmember
 from .models import College
+from .models import Program
 
 class OrganizationForm(ModelForm):
     class Meta:
@@ -23,4 +24,9 @@ class OrgmemberForm(ModelForm):
 class CollegeForm(ModelForm):
     class Meta:
         model = College
+        fields = "__all__"
+
+class ProgramForm(ModelForm):
+    class Meta:
+        model = Program
         fields = "__all__"
