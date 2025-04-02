@@ -124,7 +124,7 @@ class ProgramCreateView(CreateView):
 
 class ProgramUpdateView(UpdateView):
     model = Program
-    form_class = StudentForm
+    form_class = ProgramForm
     template_name = 'program_edit.html'
     success_url = reverse_lazy('program-list')
     
