@@ -18,7 +18,7 @@ class StudentForm(ModelForm):
 
 class OrgmemberForm(ModelForm):
     class Meta:
-        model = Student
+        model = Orgmember
         fields = "__all__"
 
 class CollegeForm(ModelForm):
