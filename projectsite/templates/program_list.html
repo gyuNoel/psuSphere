@@ -44,8 +44,8 @@
             <tbody>
             {% for object in object_list %}
             <tr>
-                <td>{{ object.name }}</td>
-                <td>{{ object.description }}</td>
+                <td>{{ object.prog_name }}</td>
+                <td>{{ object.college }}</td>
                 <td>
                 <a href="program_list/{{ object.id }}">Edit</a>
                 <a href="program_list/{{ object.id }}/delete" class="text-danger">Delete</a></td>
