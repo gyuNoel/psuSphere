@@ -32,7 +32,7 @@ urlpatterns = [
     path('organization_list/<pk>', OrganizationUpdateView.as_view(), name='organization-update'),
     path('organization_list/<pk>/delete', OrganizationDeleteView.as_view(), name='organization-delete'),
     #Student
-    path ('student_list',StudentList.as_view(), name='student-list'),
+    path('student_list',StudentList.as_view(), name='student-list'),
     path('student_list/add', StudentCreateView.as_view(), name='student-add'),
     path('student_list/<pk>', StudentUpdateView.as_view(), name='student-update'),
     path('student_list/<pk>/delete', StudentDeleteView.as_view(), name='student-delete'),
