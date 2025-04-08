@@ -84,7 +84,15 @@ class OrgmemberList(ListView):
     context_object_name = 'org_member'
     template_name = 'orgmem_list.html'
     paginate_by = 5
-
+    
+    def get_queryset(self, *args, **kwargs):
+        qs = super(OrgmemberList, self).get_queryset(*args, **kwargs)
+        if self.request.GET.get("q") != None:
+            query = self.request.GET.get('q')
+            qs = qs.filter(Q(student__lastname__icontains=query) | Q(Organization__name__icontains=query))
+        return qs
+    
+    
 class OrgmemberCreateView(CreateView):
     model = Orgmember
     form_class = OrgmemberForm
