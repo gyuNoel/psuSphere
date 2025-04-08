@@ -50,13 +50,18 @@ class OrganizationDeleteView(DeleteView):
 
 
 
-
-
 class StudentList(ListView):
     model = Student
     context_object_name = 'student'
     template_name = 'student_list.html'
     paginate_by = 5
+    
+    def get_queryset(self, *args, **kwargs):
+        qs = super(StudentList, self).get_queryset(*args, **kwargs)
+        if self.request.GET.get("q") != None:
+            query = self.request.GET.get('q')
+            qs = qs.filter(Q(student_id__icontains=query) |Q(lastname__icontains=query) | Q(firstname__icontains=query) | Q(middlename__icontains=query) | Q(program__prog_name__icontains=query))
+        return qs
 
 class StudentCreateView(CreateView):
     model = Student
@@ -120,6 +125,13 @@ class CollegeList(ListView):
     context_object_name = 'college'
     template_name = 'college_list.html'
     paginate_by = 5
+    
+    def get_queryset(self, *args, **kwargs):
+        qs = super(CollegeList, self).get_queryset(*args, **kwargs)
+        if self.request.GET.get("q") != None:
+            query = self.request.GET.get('q')
+            qs = qs.filter(Q(college_name__icontains=query))
+        return qs
 
 class CollegeCreateView(CreateView):
     model = College
@@ -147,6 +159,13 @@ class ProgramList(ListView):
     context_object_name = 'program'
     template_name = 'program_list.html'
     paginate_by = 5
+    
+    def get_queryset(self, *args, **kwargs):
+        qs = super(ProgramList, self).get_queryset(*args, **kwargs)
+        if self.request.GET.get("q") != None:
+            query = self.request.GET.get('q')
+            qs = qs.filter(Q(prog_name__icontains=query) |Q(college__college_name__icontains=query))
+        return qs
 
 class ProgramCreateView(CreateView):
     model = Program
