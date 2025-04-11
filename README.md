@@ -14,8 +14,8 @@ This will redirect you to the /login/ which will require a username and password
 
 Enter Username and Password
 
-*Admin Username: hachuling1*
-*Password: supercutofus*
+- **Admin Username**: `hachuling1`
+- **Password:** `supercutofus`
 
 After logging in, this will land you to the dashboard. Currently, the dashboard has no function other than being the landing page. Navigate through Organization, Org. Members, Student, College, and Program tabs to view existing datas. You are also able to add, edit, and delete data.
 
